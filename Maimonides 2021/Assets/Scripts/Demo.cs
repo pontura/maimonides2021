@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Demo : MonoBehaviour
 {
-    public GameObject cam;
-    public GameObject ball;
-    public Vector3 cam_position; //  float, float, float
+    public List<int> lista;
 
+    void Start()
+    {
+        print( lista[0] );
+    }
     private void Update()
     {
-        cam.transform.position = ball.transform.position;
-        cam.transform.localEulerAngles = ball.transform.localEulerAngles;
+        print(lista[1]);
     }
 }
