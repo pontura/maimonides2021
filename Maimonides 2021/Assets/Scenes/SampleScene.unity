@@ -1377,7 +1377,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.8906e-41, z: 0, w: -2.09375}
+  m_BoundingSphereOverride: {x: 0, y: 1.8542e-41, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3206,10 +3206,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fde8402751ec614a96b9d54ec125798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allcharacterData:
+  - username: agustin
+    edad: 43
+    color: {r: 1, g: 0, b: 0, a: 1}
+  - username: feddd
+    edad: 12
+    color: {r: 0, g: 0.24271059, b: 1, a: 1}
   all: []
   character_to_instantiate: {fileID: 539285619781337137, guid: 89304c060e425ac499f28899cfdfbadd,
     type: 3}
   container: {fileID: 2137932998}
+  maxPlayers: 0
 --- !u!1 &2137932997
 GameObject:
   m_ObjectHideFlags: 0
