@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public string characterName;
-
-    public void SetName(string name)
+    void Start()
     {
-        characterName = name;
-    }
-    public void SetColor(Color colorName)
-    {
-        GetComponent<Renderer>().material.color = colorName;
-    }
-    public void SetEdad(int edad)
-    {
-        //characterName = name;
+        
     }
 
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            //cada frame mientras se apriete derecha:
+
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+
+        }
+    }
+    public void DoSomething()
+    {
+        print("character hace algo!");
+    }
 }
