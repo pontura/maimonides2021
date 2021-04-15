@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
+    public float speed = 50;
+    public float limit = 18;
 
     void Update()
     {
+        float x = transform.position.x;
+        print(x);
+
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            //cada frame mientras se apriete derecha:
-
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            x = transform.position.x;
+            if (x > limit)
+                transform.position = new Vector3(limit, transform.position.y, transform.position.z);
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-
+            transform.Translate(Vector3.right * -speed * Time.deltaTime);
+            x = transform.position.x;
+            if (x < -limit)
+                transform.position = new Vector3(-limit, transform.position.y, transform.position.z);
         }
     }
     public void DoSomething()
