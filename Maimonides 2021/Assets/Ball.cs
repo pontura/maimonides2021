@@ -19,10 +19,11 @@ public class Ball : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        foreach (ContactPoint contact  in collision.contacts)
-        {
-            velocity = 2 * (Vector3.Dot(velocity, Vector3.Normalize(contact.normal))) * Vector3.Normalize(contact.normal) - velocity;
-            velocity *= -1;
-        }
-    }    
+        ContactPoint contactPoint = collision.contacts[0];
+        Vector3 normal = contactPoint.normal;
+        velocity = 2 * (Vector3.Dot(velocity, Vector3.Normalize(normal))) * Vector3.Normalize(normal) - velocity;
+        velocity *= -1;
+    }
+
+
 }
