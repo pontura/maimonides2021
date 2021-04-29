@@ -5,7 +5,6 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public float speed = 10;
-    public Character character;
     Vector3 velocity;  
  
     void Awake()
@@ -23,7 +22,7 @@ public class Ball : MonoBehaviour
         Vector3 normal = contactPoint.normal;
         velocity = 2 * (Vector3.Dot(velocity, Vector3.Normalize(normal))) * Vector3.Normalize(normal) - velocity;
         velocity *= -1;
+        GameObject collitionWith = collision.gameObject;
+        //Destroy(collitionWith);
     }
-
-
 }

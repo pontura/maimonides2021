@@ -12,6 +12,25 @@ public class Character : MonoBehaviour
         float x = transform.position.x;
         print(x);
 
+        float dir = 0;
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            dir = 1;
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            dir = -1;
+        }
+
+        transform.Translate(Vector3.right * dir * speed * Time.deltaTime);
+    }
+
+    void Update2()
+    {
+        float x = transform.position.x;
+        print(x);
+
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
