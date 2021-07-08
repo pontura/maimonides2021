@@ -6,12 +6,10 @@ public class InteractiveObject : MonoBehaviour
 {
     public int score;
 
-    public virtual void OnSomethingEnter(GameObject go)
+    public virtual void OnInteract(Character character)
     {
-        print("gano " + score);
-    }
-    public virtual void OnSomethingExit(GameObject go)
-    {
-
+        Pickup pickup = GetComponent<Pickup>();
+        if (pickup != null)
+            pickup.OnGrab(character.hand);
     }
 }

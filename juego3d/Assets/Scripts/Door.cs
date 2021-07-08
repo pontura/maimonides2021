@@ -4,13 +4,35 @@ using UnityEngine;
 
 public class Door : InteractiveObject
 {
-    public override void OnSomethingEnter(GameObject go)
+    public Vector3 openPosition;
+    Vector3 originalPosition;
+    public bool open;
+    public float speed = 5;
+
+    private void Start()
     {
-        print("abre");
-        base.OnSomethingEnter(go);
+        originalPosition = transform.localPosition;
     }
-    public override void OnSomethingExit(GameObject go)
+    private void Update()
     {
-        print("ciera");
+        Vector3 dest = Vector3.zero;
+        if(open && transform.localPosition != openPosition)
+        {
+            dest = openPosition;
+        }
+        else if (!open && transform.localPosition != originalPosition)
+        {
+            dest = originalPosition;
+        }
+        if(dest != Vector3.zero)
+            transform.localPosition = Vector3.Lerp(transform.localPosition, dest, speed*Time.deltaTime);
+    }
+    public void Open()
+    {
+        open = true;
+    }
+    public void Close()
+    {
+        open = false;
     }
 }

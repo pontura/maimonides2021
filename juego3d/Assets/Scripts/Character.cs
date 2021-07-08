@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public InputManager inputManager;
     public float speed;
     public float rotationSpeed;
+    [SerializeField] InteractiveObject ioActive = null;
+    public Transform hand;
 
-    void Update()
+    public void Move(float rotationValue, float _vertical)
     {
-        float rotationValue = inputManager.horizontalAxis;
         if(rotationValue != 0)
             transform.Rotate(Vector3.up * rotationValue * rotationSpeed * Time.deltaTime);
 
-        Vector3 moveVector = (Vector3.forward * inputManager.verticalAxis);
+        Vector3 moveVector = (Vector3.forward * _vertical);
         if(moveVector != Vector3.zero)
             transform.Translate(moveVector * speed * Time.deltaTime);
+    }
+    public void OnInteract()
+    {
+        if (ioActive == null) return;
+        ioActive.OnInteract(this);
     }
     private void OnTriggerEnter(Collider other)
     {
         InteractiveObject io = other.gameObject.GetComponent<InteractiveObject>();
-        if (io != null)  {  io.OnSomethingEnter(gameObject);  }
+        if (io != null)  { ioActive = io;  }
     }
     private void OnTriggerExit(Collider other)
     {
         InteractiveObject io = other.gameObject.GetComponent<InteractiveObject>();
-        if (io != null) { io.OnSomethingExit(gameObject); }
+        if (io != null) { ioActive = null; }
     }
 }
