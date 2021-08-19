@@ -6,8 +6,9 @@ public class Character : MonoBehaviour
 {
     public float speed;
     public float rotationSpeed;
-    [SerializeField] InteractiveObject ioActive = null;
+    public InteractiveObject ioActive = null;
     public Transform hand;
+    public Inventory inventory;
 
     public void Move(float rotationValue, float _vertical)
     {
@@ -20,8 +21,12 @@ public class Character : MonoBehaviour
     }
     public void OnInteract()
     {
-        if (ioActive == null) return;
-        ioActive.OnInteract(this);
+        Pickup pickUpObject = inventory.GetPickupObject();
+
+        if (ioActive != null)
+            ioActive.OnInteract(this);
+        else if (pickUpObject != null)
+            pickUpObject.Drop(this);
     }
     private void OnTriggerEnter(Collider other)
     {

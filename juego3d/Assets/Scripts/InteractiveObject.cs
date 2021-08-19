@@ -10,6 +10,8 @@ public class InteractiveObject : MonoBehaviour
     {
         Pickup pickup = GetComponent<Pickup>();
         if (pickup != null)
-            pickup.OnGrab(character.hand);
+        {
+            pickup.OnGrab(character);
+        }
     }
 }
