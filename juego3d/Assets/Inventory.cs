@@ -6,15 +6,18 @@ public class Inventory : MonoBehaviour
 {
     public List<InteractiveObject> all;
     public int totalItems = 1;
+    public InventoryUI ui;
 
     public void Add(InteractiveObject io)
     {
         if(IsFull()) return;
         all.Add(io);
+        ui.Add(io);
     }
     public void Remove(InteractiveObject io)
     {
         all.Remove(io);
+        ui.Remove(io);
     }
     public bool IsFull()
     {

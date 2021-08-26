@@ -19,5 +19,10 @@ public class InputManager : MonoBehaviour
         if(Input.GetButtonDown("Action" + id))
             character.OnInteract();
 
+        if (Input.GetKey(KeyCode.LeftShift))
+            character.Run(true);
+        else
+            character.Run(false);
+
     }
 }

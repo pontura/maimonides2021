@@ -14,4 +14,12 @@ public class InteractiveObject : MonoBehaviour
             pickup.OnGrab(character);
         }
     }
+    public void UseIt()
+    {
+        Pickup pickup = GetComponent<Pickup>();
+        if (pickup != null)
+        {
+            pickup.Drop();
+        }
+    }
 }

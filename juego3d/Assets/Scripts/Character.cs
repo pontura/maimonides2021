@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public float speed;
+    public float maxSpeed = 5;
     public float rotationSpeed;
     public InteractiveObject ioActive = null;
     public Transform hand;
     public Inventory inventory;
+    public Animator anim;
+    public float speed;
+    public float accelerator;
 
     public void Move(float rotationValue, float _vertical)
     {
@@ -17,7 +20,17 @@ public class Character : MonoBehaviour
 
         Vector3 moveVector = (Vector3.forward * _vertical);
         if(moveVector != Vector3.zero)
-            transform.Translate(moveVector * speed * Time.deltaTime);
+            transform.Translate(moveVector * maxSpeed * Time.deltaTime);
+
+        speed = moveVector.z + accelerator;
+        anim.SetFloat("speed", speed);
+    }
+    public void Run(bool isRunning)
+    {
+        if (isRunning)
+            accelerator = 1;
+        else
+            accelerator = 0;
     }
     public void OnInteract()
     {
@@ -25,8 +38,6 @@ public class Character : MonoBehaviour
 
         if (ioActive != null)
             ioActive.OnInteract(this);
-        else if (pickUpObject != null)
-            pickUpObject.Drop(this);
     }
     private void OnTriggerEnter(Collider other)
     {
