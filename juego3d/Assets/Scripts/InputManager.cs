@@ -8,6 +8,13 @@ public class InputManager : MonoBehaviour
     public float horizontalAxis;
     public int id;
     public Character character;
+    public GameObject cameraPivot;
+
+    public float filterX;
+    public float filterY;
+
+    public float offsetRotationY;
+    public Vector2 limitsY;
 
     void Update()
     {
@@ -24,5 +31,20 @@ public class InputManager : MonoBehaviour
         else
             character.Run(false);
 
+        if (Input.GetKeyDown(KeyCode.Space))
+            character.actions.Attack();
+
+        float _y = (Input.mousePosition.y) * filterY;
+        float _x = (Input.mousePosition.x - Screen.width / 2) * filterX;
+
+        print(_y);
+        if (_y < limitsY.x) _y = limitsY.x;
+        else  if (_y > limitsY.y) _y = limitsY.y;
+
+        _y += offsetRotationY;
+        cameraPivot.transform.localEulerAngles = new Vector3(_y, 0,  0);
+        Vector3 rot = character.transform.localEulerAngles;
+        rot.y = _x;
+        character.transform.localEulerAngles = rot;
     }
 }

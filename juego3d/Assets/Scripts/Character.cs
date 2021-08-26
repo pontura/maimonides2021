@@ -9,9 +9,9 @@ public class Character : MonoBehaviour
     public InteractiveObject ioActive = null;
     public Transform hand;
     public Inventory inventory;
-    public Animator anim;
     public float speed;
     public float accelerator;
+    public ActionsManager actions;
 
     public void Move(float rotationValue, float _vertical)
     {
@@ -23,7 +23,7 @@ public class Character : MonoBehaviour
             transform.Translate(moveVector * maxSpeed * Time.deltaTime);
 
         speed = moveVector.z + accelerator;
-        anim.SetFloat("speed", speed);
+        actions.SetSpeed(speed);
     }
     public void Run(bool isRunning)
     {
