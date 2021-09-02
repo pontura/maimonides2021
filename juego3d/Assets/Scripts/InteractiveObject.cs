@@ -5,6 +5,9 @@ using UnityEngine;
 public class InteractiveObject : MonoBehaviour
 {
     public int score;
+    public string objectName;
+    public Sprite thumb;
+    public int power;
 
     public virtual void OnInteract(Character character)
     {

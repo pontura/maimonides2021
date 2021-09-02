@@ -5,17 +5,19 @@ using UnityEngine.UI;
 
 public class InventoryButton : MonoBehaviour
 {
-    InteractiveObject io;
+    public InteractiveObject io;
     public Text field;
+    public Image thumb;
 
     public void Init(InteractiveObject io)
     {
         this.io = io;
-        field.text = io.name;
+        field.text = io.objectName;
+        thumb.sprite = io.thumb;
     }
     public void Clicked()
     {
         io.UseIt();
-        Destroy(gameObject);
+
     }
 }

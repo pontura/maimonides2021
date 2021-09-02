@@ -27,6 +27,14 @@ public class Door : InteractiveObject
         if(dest != Vector3.zero)
             transform.localPosition = Vector3.Lerp(transform.localPosition, dest, speed*Time.deltaTime);
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Character character = collision.gameObject.GetComponent<Character>();
+        if(character != null)
+        {
+            character.inventory.HasItem("Bla");
+        }
+    }
     public void Open()
     {
         open = true;

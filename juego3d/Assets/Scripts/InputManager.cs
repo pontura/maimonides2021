@@ -16,23 +16,30 @@ public class InputManager : MonoBehaviour
     public float offsetRotationY;
     public Vector2 limitsY;
 
+    public float horizontalMouse;
+    public float verticalMouse;
+
     void Update()
     {
         verticalAxis = Input.GetAxis("Vertical" + id);
         horizontalAxis = Input.GetAxis("Horizontal" + id);
+
+
+        horizontalMouse = Input.GetAxis("Mouse Y");
+        verticalMouse = Input.GetAxis("Mouse X");
 
         character.Move(horizontalAxis, verticalAxis);
 
         if(Input.GetButtonDown("Action" + id))
             character.OnInteract();
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             character.Run(true);
         else
             character.Run(false);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-            character.actions.Attack();
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //    character.actions.Attack();
 
         //float _y = (Input.mousePosition.y) * filterY;
         //float _x = (Input.mousePosition.x - Screen.width / 2) * filterX;

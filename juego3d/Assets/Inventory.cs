@@ -19,6 +19,10 @@ public class Inventory : MonoBehaviour
         all.Remove(io);
         ui.Remove(io);
     }
+    public bool HasItem(string itemName)
+    {
+        return false;
+    }
     public bool IsFull()
     {
         if (all.Count >= totalItems)
