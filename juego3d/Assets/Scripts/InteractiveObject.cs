@@ -8,16 +8,18 @@ public class InteractiveObject : MonoBehaviour
     public string objectName;
     public Sprite thumb;
     public int power;
+    [HideInInspector] public Character character;
 
     public virtual void OnInteract(Character character)
     {
+        this.character = character;
         Pickup pickup = GetComponent<Pickup>();
         if (pickup != null)
         {
             pickup.OnGrab(character);
         }
     }
-    public void UseIt()
+    public virtual void UseIt()
     {
         Pickup pickup = GetComponent<Pickup>();
         if (pickup != null)
