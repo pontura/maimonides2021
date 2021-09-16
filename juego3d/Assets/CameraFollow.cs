@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-
     public Character character;
     public Vector3 offset;
-
-    void Start()
-    {
-        
-    }
+    public float smooth;
 
     void Update()
     {
-        transform.position = character.transform.position + offset;
+        Vector3 dest = character.transform.position + offset;
+        transform.position = Vector3.Lerp(transform.position, dest, smooth * Time.deltaTime);
     }
 }
