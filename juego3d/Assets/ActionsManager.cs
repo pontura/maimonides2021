@@ -6,8 +6,8 @@ public class ActionsManager : MonoBehaviour
 {
     public Animator anim;
     public Transform hand;
-    GameObject grabbedObject = null;
-    string grabbedObjectName = "";
+    public UsableObjects grabbedObject = null;
+    string usableObjectName = "";
 
     public void SetSpeed(float speed)
     {
@@ -25,23 +25,26 @@ public class ActionsManager : MonoBehaviour
     {
         print("sound");
     }
-    public void GetObject(GameObject asset)
+    public void GetObject(UsableObjects usableObject)
     {
-        ResetGrabbedItems();
-        if (asset.name != grabbedObjectName)
-        { 
-            grabbedObject = Instantiate(asset, hand);
-            grabbedObject.transform.localPosition = Vector3.zero;
-            grabbedObjectName = asset.name;
-        }
-        else
+        if (grabbedObject != null && usableObject.name == usableObjectName)
         {
-            grabbedObjectName = "";
+            ResetGrabbedItems();
+            return;
         }
+        ResetGrabbedItems();
+        usableObjectName = usableObject.name;
+        grabbedObject = Instantiate(usableObject, hand);
+        grabbedObject.transform.localPosition = Vector3.zero;
     }
     void ResetGrabbedItems()
     {
         if (grabbedObject != null)
-            Destroy(grabbedObject);
+            Destroy(grabbedObject.gameObject);
+        grabbedObject = null;
+    }
+    public UsableObjects HasSomethingUsableInHand()
+    {
+        return hand.GetComponentInChildren<UsableObjects>();
     }
 }

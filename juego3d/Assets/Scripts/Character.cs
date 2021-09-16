@@ -7,7 +7,6 @@ public class Character : MonoBehaviour
     public float maxSpeed = 5;
     public float rotationSpeed;
     public InteractiveObject ioActive = null;
-    public Transform hand;
     public Inventory inventory;
     public float speed;
     public float accelerator;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sword : InteractiveObject
 {
-    public GameObject asset_in_hand;
+    public UsableObjects asset_in_hand;
 
     public override void UseIt()
     {

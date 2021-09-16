@@ -38,6 +38,19 @@ public class InputManager : MonoBehaviour
         else
             character.Run(false);
 
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            UsableObjects io = character.actions.HasSomethingUsableInHand();
+            if (io != null)
+            {
+                io.UseIt();
+            }
+            else
+            {
+                print("nada agarrado");
+            }
+        }
+
         //if (Input.GetKeyDown(KeyCode.Space))
         //    character.actions.Attack();
 

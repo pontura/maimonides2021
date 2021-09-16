@@ -496,7 +496,7 @@ MonoBehaviour:
   thumb: {fileID: 21300000, guid: fa491af25cdd54f48bf94af9105b5652, type: 3}
   power: 15
   character: {fileID: 0}
-  asset_in_hand: {fileID: 3834493762039603994, guid: 1b87fe6f30bf25f4c8d7ecbd7600cf86, type: 3}
+  asset_in_hand: {fileID: 2314654725694819032, guid: 1b87fe6f30bf25f4c8d7ecbd7600cf86, type: 3}
 --- !u!54 &278121324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1952,7 +1952,7 @@ MonoBehaviour:
   thumb: {fileID: 21300000, guid: bede96a141eab954995ec83a279f5517, type: 3}
   power: 15
   character: {fileID: 0}
-  asset_in_hand: {fileID: 3834493762039603994, guid: 5b0f796bff1d5874f8f12fce3aacfe4a, type: 3}
+  asset_in_hand: {fileID: 7978830439281820335, guid: 5b0f796bff1d5874f8f12fce3aacfe4a, type: 3}
 --- !u!114 &1049215269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2343,7 +2343,6 @@ MonoBehaviour:
   maxSpeed: 5
   rotationSpeed: 100
   ioActive: {fileID: 0}
-  hand: {fileID: 1570294018}
   inventory: {fileID: 1247394704}
   speed: 2
   accelerator: 2

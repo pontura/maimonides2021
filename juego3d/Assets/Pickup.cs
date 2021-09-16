@@ -16,7 +16,6 @@ public class Pickup : MonoBehaviour
         this.character = character;
         GetComponent<Rigidbody>().isKinematic = true;
         GetComponent<Collider>().enabled = false;
-        transform.SetParent(character.hand);
         transform.localPosition = Vector3.zero;
         character.inventory.Add( GetComponent<InteractiveObject>() );
         character.ioActive = null;
