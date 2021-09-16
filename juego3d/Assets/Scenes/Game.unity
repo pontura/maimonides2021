@@ -366,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 194129150}
   hand: {fileID: 1571820400}
+  grabbedObject: {fileID: 0}
 --- !u!95 &194129150 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8422892626592999198, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
@@ -496,7 +497,7 @@ MonoBehaviour:
   thumb: {fileID: 21300000, guid: fa491af25cdd54f48bf94af9105b5652, type: 3}
   power: 15
   character: {fileID: 0}
-  asset_in_hand: {fileID: 2314654725694819032, guid: 1b87fe6f30bf25f4c8d7ecbd7600cf86, type: 3}
+  asset_in_hand: {fileID: 4477168649534264209, guid: 1b87fe6f30bf25f4c8d7ecbd7600cf86, type: 3}
 --- !u!54 &278121324
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -537,10 +538,10 @@ GameObject:
   - component: {fileID: 342919289}
   - component: {fileID: 342919293}
   - component: {fileID: 342919292}
-  - component: {fileID: 342919291}
   - component: {fileID: 342919290}
+  - component: {fileID: 342919294}
   m_Layer: 0
-  m_Name: Coin_2
+  m_Name: FlashLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -573,23 +574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118405a62f2dc1d4691af3e4716962dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &342919291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342919288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1c010376478c004abe275f218db0044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  score: 10
-  objectName: Llave oro
-  thumb: {fileID: 21300000, guid: b4b79a6bd0558c54ea218d8f32f8901d, type: 3}
-  power: 1
-  character: {fileID: 0}
 --- !u!54 &342919292
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -619,6 +603,24 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &342919294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342919288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11fb2db19058d3849b49a8932aa9f3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  objectName: 
+  thumb: {fileID: 21300000, guid: 6e911ecfa4cbe7543b0bddde1b339c77, type: 3}
+  power: 0
+  character: {fileID: 0}
+  asset_in_hand: {fileID: -2993011354206665060, guid: b742cc6983e83284a85e214a8297fab6, type: 3}
 --- !u!1 &361346670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,7 +1954,7 @@ MonoBehaviour:
   thumb: {fileID: 21300000, guid: bede96a141eab954995ec83a279f5517, type: 3}
   power: 15
   character: {fileID: 0}
-  asset_in_hand: {fileID: 7978830439281820335, guid: 5b0f796bff1d5874f8f12fce3aacfe4a, type: 3}
+  asset_in_hand: {fileID: -3035122264509110206, guid: 5b0f796bff1d5874f8f12fce3aacfe4a, type: 3}
 --- !u!114 &1049215269
 MonoBehaviour:
   m_ObjectHideFlags: 0

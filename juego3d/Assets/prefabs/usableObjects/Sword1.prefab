@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1285505146768176437}
-  - component: {fileID: 7978830439281820335}
+  - component: {fileID: 4477168649534264209}
   m_Layer: 0
-  m_Name: Sword2
+  m_Name: Sword1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7978830439281820335
+--- !u!114 &4477168649534264209
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3834493762039603994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ac30c7e038bb545a70f25797280bac, type: 3}
+  m_Script: {fileID: 11500000, guid: f94460b3d8131954f929a3e97cca322d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  types: 0
 --- !u!1001 &1294356238354022987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,7 +103,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 9ef625d01f79b4e4eb62fcdf032954ca, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6330a8f502fcf0845ae08c031e27ec8d, type: 2}
+      objectReference: {fileID: 2100000, guid: d4defad7a6ab2dd43899f61beba26076, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ef625d01f79b4e4eb62fcdf032954ca, type: 3}
 --- !u!4 &1294356238353635531 stripped
