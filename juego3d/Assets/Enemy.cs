@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum states
     {
-        
+        IDLE,
+        ALERT,
+        RUN,
+        ATTACKING
     }
+    public List<EnemyState> allStates;
+    public states state;
 
-    // Update is called once per frame
-    void Update()
+    public void SetNewState(states state)
     {
-        
+        this.state = state;
     }
 }
