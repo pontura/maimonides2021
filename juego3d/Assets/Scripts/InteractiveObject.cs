@@ -19,7 +19,7 @@ public class InteractiveObject : MonoBehaviour
             pickup.OnGrab(character);
         }
     }
-    public virtual void UseIt()
+    public virtual void UseIt() // es llamada cuando clickeo el thumb del inventario
     {
         Pickup pickup = GetComponent<Pickup>();
         if (pickup != null)

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : InteractiveObject
+public class WearableIO : InteractiveObject
 {
-    public UsableObjects asset_in_hand;
+    public WearableObject asset_to_wear;
 
     public override void UseIt() // es llamada cuando clickeo el thumb del inventario
     {
-        character.actions.GetObject(asset_in_hand);
+        character.actions.WeartObject(asset_to_wear);
         print("UseIt: soy una espada, no me dejo"); // que hago ?
     }
 }

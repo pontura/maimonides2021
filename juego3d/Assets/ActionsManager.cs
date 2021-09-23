@@ -6,6 +6,7 @@ public class ActionsManager : MonoBehaviour
 {
     public Animator anim;
     public Transform hand;
+    public Transform head;
     public UsableObjects grabbedObject = null;
     string usableObjectName = "";
 
@@ -36,6 +37,14 @@ public class ActionsManager : MonoBehaviour
         usableObjectName = usableObject.name;
         grabbedObject = Instantiate(usableObject, hand);
         grabbedObject.transform.localPosition = Vector3.zero;
+    }
+    public void WeartObject(WearableObject wObject)
+    {
+        // donde va?
+        if(wObject.type == WearableObject.types.HEAD)
+        { }
+        WearableObject wO = Instantiate(wObject, head);
+        wO.transform.localPosition = Vector3.zero;
     }
     void ResetGrabbedItems()
     {
