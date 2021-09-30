@@ -11,12 +11,13 @@ public class EyeZone : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Character>())
-            enemy.GetComponent<LookAtTarget>().OnTarget(other.transform);
+        Character character = other.gameObject.GetComponent<Character>();
+        if (character != null)
+            enemy.OnCharacterEnterViewZone(character);
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.GetComponent<Character>())
-            enemy.GetComponent<LookAtTarget>().OnTarget(null);
+            enemy.OnCharacterEnterViewZone(null);
     }
 }

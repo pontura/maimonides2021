@@ -4,18 +4,38 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public enum states
-    {
-        IDLE,
-        ALERT,
-        RUN,
-        ATTACKING
-    }
     public List<EnemyState> allStates;
-    public states state;
+    EnemyState currentState;
+    public Animator anim;
+    public Character character;
+    public LookAtTarget lookAtTarget;
 
-    public void SetNewState(states state)
+    private void Start()
     {
-        this.state = state;
+        SetNewState(EnemyState.states.IDLE);
+    }
+    public void SetNewState(EnemyState.states stateType) // solo puede ser llamado desde un estado:
+    {
+        foreach (EnemyState enemyState in allStates)
+        {
+            if (enemyState.state == stateType)
+            {
+                this.currentState = enemyState;
+                currentState.enabled = true;
+                currentState.Init();
+            }
+            else
+            {
+                enemyState.enabled = false;
+            }
+        }
+    }
+    public void OnCharacterEnterViewZone(Character character)
+    {
+        this.character = character;
+        if (character == null)
+            currentState.OnCharacterExitViewZone(character);
+        else
+            currentState.OnCharacterEnterViewZone(character);
     }
 }
