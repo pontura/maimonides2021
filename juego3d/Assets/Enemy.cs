@@ -30,6 +30,13 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            currentState.OnTryToAttack();
+        }
+    }
     public void OnCharacterEnterViewZone(Character character)
     {
         this.character = character;

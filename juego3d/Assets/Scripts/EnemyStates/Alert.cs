@@ -9,10 +9,16 @@ public class Alert : EnemyState
     private void Update()
     {
         if (enemy != null && enemy.character != null)
+        {
             enemy.lookAtTarget.LookAt(enemy.character);
-        float distanceToCharacter = Vector3.Distance(transform.position, enemy.character.transform.position);
-        if (distanceToCharacter < distanceToFollow)
-            enemy.SetNewState(states.FOLLOW);
+            float distanceToCharacter = Vector3.Distance(transform.position, enemy.character.transform.position);
+            if (distanceToCharacter < distanceToFollow)
+                enemy.SetNewState(states.FOLLOW);
+        }
+        else
+        {
+            enemy.SetNewState(states.IDLE);
+        }
     }
     public override void Init()
     {

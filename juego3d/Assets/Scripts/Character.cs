@@ -50,7 +50,6 @@ public class Character : MonoBehaviour
     public void OnInteract()
     {
        // Pickup pickUpObject = inventory.GetPickupObject();
-
         if (ioActive != null)
             ioActive.OnInteract(this);
     }

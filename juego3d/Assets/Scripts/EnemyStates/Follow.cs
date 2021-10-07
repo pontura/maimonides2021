@@ -6,27 +6,31 @@ public class Follow : EnemyState
 {
     int distanceStopFollow = 18;
     int limit = 4;
-    float speed = 5;
+    public float speed = 2;
+    Character character;
 
     public override void Init()
     {
         enemy.anim.Play("Walk");
+        character = enemy.character;
     }
     private void Update()
     {
-        if (enemy.character == null)
+        if (character == null)
         {
-            enemy.SetNewState(states.ALERT);
+            Alert();
             return;
         }
-        enemy.lookAtTarget.LookAt(enemy.character);
-        float distanceToCharacter = Vector3.Distance(transform.position, enemy.character.transform.position);
+        enemy.lookAtTarget.LookAt(character);
+        float distanceToCharacter = Vector3.Distance(transform.position, character.transform.position);
         if (distanceToCharacter > distanceStopFollow)
-            enemy.SetNewState(states.ALERT);
-        else if(distanceToCharacter < limit)
-        {
-            enemy.SetNewState(states.ATTACK);
-        } else
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+            Alert();
+        else if (distanceToCharacter < limit)
+            enemy.SetNewState(states.TALK);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+    void Alert()
+    {
+        //enemy.SetNewState(states.ALERT);
     }
 }

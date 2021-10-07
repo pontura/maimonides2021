@@ -8,6 +8,7 @@ public class Idle : EnemyState
     {
         enemy.anim.Play("Idle_Battle");
     }
+    public override void OnTryToAttack() {  }
     public override void OnCharacterEnterViewZone(Character character)
     {
         enemy.SetNewState(states.ALERT);

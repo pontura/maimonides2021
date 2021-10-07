@@ -11,7 +11,8 @@ public class EnemyState : MonoBehaviour
         IDLE,
         ATTACK,
         ALERT,
-        FOLLOW
+        FOLLOW,
+        TALK
     }
     void Awake() {
         enemy = GetComponent<Enemy>();
@@ -22,6 +23,10 @@ public class EnemyState : MonoBehaviour
     }
     public virtual void Init() {}
 
+    public virtual void OnTryToAttack()
+    {
+        enemy.SetNewState(states.ATTACK);
+    }
     public virtual void OnCharacterEnterViewZone(Character character)
     {
         print("entro y soy EnemyState : " + character);

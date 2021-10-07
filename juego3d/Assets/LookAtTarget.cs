@@ -11,7 +11,7 @@ public class LookAtTarget : MonoBehaviour
     void Start()
     {
         enemy = GetComponent<Enemy>();
-        targetPosition = transform.position + (transform.forward * 10);
+        targetPosition = transform.position + (transform.forward * 2);
     }
     public void LookAt(Character character)
     {
