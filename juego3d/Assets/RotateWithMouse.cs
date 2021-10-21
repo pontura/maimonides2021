@@ -18,11 +18,12 @@ public class RotateWithMouse : MonoBehaviour
 
     void Update()
     {
+
         float mouseX = -inputManager.horizontalMouse;
         float mouseY = inputManager.verticalMouse;
         x = mouseX * rotateX;
         y = mouseY * rotateY;
-        transform.eulerAngles += speedRotate * new Vector3(x, y, 0);
+        transform.eulerAngles += speedRotate * new Vector3(x, y, 0) * Time.deltaTime;
         //transform.eulerAngles += speedRotate * new Vector3(x*0.1f, y, 0);
     }
 }

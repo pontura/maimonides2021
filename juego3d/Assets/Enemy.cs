@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public bool isHelper;
+
     public List<EnemyState> allStates;
     EnemyState currentState;
     public Animator anim;

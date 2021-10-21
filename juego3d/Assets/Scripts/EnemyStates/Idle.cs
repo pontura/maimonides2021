@@ -11,6 +11,9 @@ public class Idle : EnemyState
     public override void OnTryToAttack() {  }
     public override void OnCharacterEnterViewZone(Character character)
     {
-        enemy.SetNewState(states.ALERT);
+        if(enemy.isHelper)
+            enemy.SetNewState(states.FOLLOW);
+        else
+            enemy.SetNewState(states.ALERT);
     }
 }

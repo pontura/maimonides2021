@@ -1,21 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Talk : EnemyState
 {
     public ChatUI chatUI;
     Character character;
     int limit = 5;
-    public string[] speach;
+    public SpeachData[] speach;
     int id;
+
+    [Serializable]
+    public class SpeachData
+    {
+        public int id;
+        public int gotoId;
+        public string text;
+        public moods mood;
+        public MultiplechoiceData[] multiplechoice;        
+    }
+    [Serializable]
+    public class MultiplechoiceData
+    {
+        public string text;
+        public int gotoId;
+    }
+    public enum moods
+    {
+        idle,
+        angry,
+        happy
+    }
+
 
     public override void Init()
     {
         id = 0;
         character = enemy.character;
         enemy.anim.Play("Idle_Battle");
-        TalkNext();
+        chatUI.Init(speach, this);
     }
     private void Update()
     {
@@ -29,32 +53,23 @@ public class Talk : EnemyState
             chatUI.Hide();
         }
     }
-    void TalkNext()
-    {
-        if (id > speach.Length - 1)
-        {
-            chatUI.Hide();
-        }
-        else
-        {
-            string say = speach[id];
-            chatUI.Init(say, this);
-        }
-    }
     public void Idle()
     {
         enemy.anim.Play("Idle_Battle");
     }
-    public void Happy()
+    public void ChangeMood(moods mood)
     {
-        id++;
-        enemy.anim.Play("GetHit");
-        TalkNext();
-    }
-    public void Angry()
-    {
-        id++;
-        enemy.anim.Play("Defend");
-        TalkNext();
+        switch(mood)
+        {
+            case moods.idle:
+                enemy.anim.Play("Idle_Battle");
+                break;
+            case moods.happy:
+                enemy.anim.Play("GetHit");
+                break;
+            case moods.angry:
+                enemy.anim.Play("Defend");
+                break;
+        }
     }
 }

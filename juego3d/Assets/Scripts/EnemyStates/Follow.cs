@@ -9,6 +9,7 @@ public class Follow : EnemyState
     public float speed = 2;
     Character character;
 
+
     public override void Init()
     {
         enemy.anim.Play("Walk");
@@ -23,10 +24,17 @@ public class Follow : EnemyState
         }
         enemy.lookAtTarget.LookAt(character);
         float distanceToCharacter = Vector3.Distance(transform.position, character.transform.position);
-        if (distanceToCharacter > distanceStopFollow)
-            Alert();
-        else if (distanceToCharacter < limit)
-            enemy.SetNewState(states.TALK);
+        if (enemy.isHelper)
+        {
+
+        }
+        else
+        {
+            if (distanceToCharacter > distanceStopFollow)
+                Alert();
+            else if (distanceToCharacter < limit)
+                enemy.SetNewState(states.TALK);
+        }
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
     void Alert()
