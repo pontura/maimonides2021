@@ -18,7 +18,7 @@ public class Talk : EnemyState
         public int gotoId;
         public string text;
         public moods mood;
-        public MultiplechoiceData[] multiplechoice;        
+        public MultiplechoiceData[] multiplechoice;
     }
     [Serializable]
     public class MultiplechoiceData
